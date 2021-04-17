@@ -39,15 +39,14 @@ public class CollectionTestSuite {
         }
         //When
         OddNumbersExterminator.exterminate(numbers);
+
+        //Then
         ArrayList<Integer> evenNumbers = new ArrayList<Integer>();
         for(int i = 0; i < 10; i++){
             if(i % 2 == 0) {
                 evenNumbers.add(i);
             }
         }
-        //Then
-        for (int n = 0; n < numbers.size(); n++) {
-            Assertions.assertEquals(evenNumbers.get(n), numbers.get(n));
-        }
+        Assertions.assertEquals(evenNumbers, numbers);
     }
 }
