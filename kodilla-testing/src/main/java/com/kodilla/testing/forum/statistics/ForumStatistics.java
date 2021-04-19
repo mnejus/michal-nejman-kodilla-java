@@ -15,6 +15,21 @@ public class ForumStatistics {
         this.statistics = statistics;
     }
 
+    public int getUsersNum() {
+        usersNum = statistics.userNames().size();
+        return usersNum;
+    }
+
+    public int getPostsNum() {
+        postsNum = statistics.postCount();
+        return postsNum;
+    }
+
+    public int getCommentsNum() {
+        commentsNum = statistics.commentsCount();
+        return commentsNum;
+    }
+
     public double getAvgUserPosts() {
         avgUserPosts = statistics.postCount() / (float) statistics.userNames().size();
         return avgUserPosts;
@@ -27,14 +42,14 @@ public class ForumStatistics {
 
     public double getAvgPostComments() {
         avgPostComments = statistics.commentsCount() / (float) statistics.postCount();
-        return avgPostComments;
+        return (double) Math.round(avgPostComments * 100) / 100;
 
     }
 
     public void calculateAdvStatistics(Statistics statistics) {
-        usersNum = statistics.userNames().size();
-        postsNum = statistics.postCount();
-        commentsNum = statistics.commentsCount();
+        usersNum = getUsersNum();
+        postsNum = getPostsNum();
+        commentsNum = getCommentsNum();
         avgUserPosts = getAvgUserPosts();
         avgUserComments = getAvgUserComments();
         avgPostComments = getAvgPostComments();
