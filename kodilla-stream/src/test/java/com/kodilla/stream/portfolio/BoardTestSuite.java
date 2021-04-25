@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -147,6 +148,10 @@ public class BoardTestSuite {
         assertEquals(2, longTasks);
     }
 
+    private double avg(double a) {
+        return a;
+    }
+
     @Test
     void testAddTaskListAverageWorkingOnTask() {
         //Given
@@ -158,10 +163,11 @@ public class BoardTestSuite {
         double result = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
-                .map(Task::getCreated)
-                .map(t -> Period.between(t, LocalDate.now()))
-                .mapToDouble(Period::getDays)
-                .average().getAsDouble();
+                .map(t -> ChronoUnit.DAYS.between(t.getCreated(), LocalDate.now()))
+                .map(this::avg)
+                .mapToDouble(a -> a)
+                .average()
+                .getAsDouble();
 
         //Then
         assertEquals(10.0, result);
