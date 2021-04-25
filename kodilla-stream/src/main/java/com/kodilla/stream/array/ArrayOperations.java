@@ -6,7 +6,7 @@ public interface ArrayOperations {
 
     static double getAverage(int[] numbers) {
         IntStream.range(0, numbers.length)
-                .forEach(System.out::printlngit);
+                .forEach(System.out::println);
 
         return IntStream.range(0, numbers.length)
                 .average()
