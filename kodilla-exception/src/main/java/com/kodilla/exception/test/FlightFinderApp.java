@@ -3,7 +3,6 @@ package com.kodilla.exception.test;
 import java.util.HashMap;
 
 public class FlightFinderApp {
-
     public static void main(String[] args) {
 
         HashMap<String, Boolean> flightMap = new HashMap<>();
