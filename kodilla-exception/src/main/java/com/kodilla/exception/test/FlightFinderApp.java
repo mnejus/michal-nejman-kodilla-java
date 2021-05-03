@@ -26,5 +26,6 @@ public class FlightFinderApp {
             System.out.println();
             System.out.println("Find another flight");
         }
+
     }
 }

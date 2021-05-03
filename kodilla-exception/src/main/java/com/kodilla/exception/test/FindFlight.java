@@ -17,7 +17,6 @@ public class FindFlight {
         } else {
             System.out.println("Flight found");
         }
-
         return flightMap.entrySet().iterator().next().getValue();
     }
 }
