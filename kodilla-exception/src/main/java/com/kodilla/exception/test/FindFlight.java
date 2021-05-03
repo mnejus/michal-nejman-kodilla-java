@@ -10,13 +10,14 @@ public class FindFlight {
         this.flightMap = flightMap;
     }
 
-    public void findFlight(Flight flight) throws RouteNotFoundException {
+    public boolean findFlight(Flight flight) throws RouteNotFoundException {
 
-        if(flightMap.containsKey(flight.getDepartureAirport()) || flightMap.containsKey(flight.getArrivalAirport())) {
+        if(!flightMap.containsKey(flight.getDepartureAirport()) || !flightMap.containsKey(flight.getArrivalAirport())) {
             throw new RouteNotFoundException("Flight not found");
         } else {
             System.out.println("Flight found");
         }
 
+        return flightMap.entrySet().iterator().next().getValue();
     }
 }

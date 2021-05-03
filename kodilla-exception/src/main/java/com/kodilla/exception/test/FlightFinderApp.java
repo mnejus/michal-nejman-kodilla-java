@@ -6,21 +6,22 @@ public class FlightFinderApp {
 
     public static void main(String[] args) {
 
-        HashMap<String, Boolean> airport = new HashMap<>();
-        airport.put("Warszawa Okęcie (WAW)", true);
-        airport.put("Modlin (WMI)", false);
-        airport.put("Wrocław (WRO)", true);
-        airport.put("Poznań Ławica (POZ)", true);
-        airport.put("Kraków Balice (KRK)", false);
-        airport.put("Katowice Pyrzowice (KTW)", false);
+        HashMap<String, Boolean> flightMap = new HashMap<>();
+        flightMap.put("Warszawa Okęcie (WAW)", true);
+        flightMap.put("Modlin (WMI)", true);
+        flightMap.put("Wrocław (WRO)", true);
+        flightMap.put("Poznań Ławica (POZ)", true);
+        flightMap.put("Kraków Balice (KRK)", true);
+        flightMap.put("Katowice Pyrzowice (KTW)", true);
 
-        Flight flight = new Flight("Warszawa Okęcie (WAW)", "Modlin (WMI)");
-        FindFlight flightFinder = new FindFlight(airport);
+        Flight flight = new Flight("Warszawa Okęcie (WAW)", "Rzym Fiumicino (FCO)");
+        //Flight flight = new Flight("Warszawa Okęcie (WAW)", "Modlin (WMI)");
+        FindFlight flightFinder = new FindFlight(flightMap);
 
         try {
             flightFinder.findFlight(flight);
         } catch (RouteNotFoundException e) {
-            System.out.println("One of the airports is closed. || " + e);
+            System.out.println("One of the airports is unsupported. || " + e);
         } finally {
             System.out.println();
             System.out.println("Find another flight");
