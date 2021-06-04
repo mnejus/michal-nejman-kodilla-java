@@ -1,0 +1,37 @@
+.screen
+{
+    -fx-background-color: #000000;
+}
+
+.header, .info, .score, .ball, .paddle, .counter
+{
+    -fx-fill: white;
+
+}
+
+.header, .info, .score, .counter
+{
+    -fx-font-family: 'Gameplay';
+    -fx-text-origin: top;
+}
+
+.header
+{
+    -fx-font-size: 48px;
+}
+
+.info
+{
+    -fx-font-size: 14px;
+    -fx-text-alignment: center;
+}
+
+.score
+{
+    -fx-font-size: 32px;
+}
+
+.counter
+{
+    -fx-font-size: 22px;
+}
