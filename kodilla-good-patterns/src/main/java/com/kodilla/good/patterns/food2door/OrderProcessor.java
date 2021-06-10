@@ -1,26 +1,27 @@
 package com.kodilla.good.patterns.food2door;
 
-public class OrderProcessor {
-    private final OrderService orderService;
-    private final Order order;
+public class OrderProcessor implements OrderService {
+    private Supplier supplier;
+    private Product product;
 
-    public OrderProcessor(OrderService orderService, Order order) {
-        this.orderService = orderService;
-        this.order = order;
+    public OrderDTO process(String shopName, OrderDTO orderDTO) {
+        Suppliers suppliers = new Suppliers();
+        Supplier supplier = suppliers.getSupplier(shopName);
 
+        if (supplier != null && !supplier.getShopName().equals("")) {
+            System.out.println("Order processed by " + supplier.getShopName());
+            System.out.println();
+            System.out.println("Type of product: " + orderDTO.getProduct().getTypeOfProduct() + " || product: " + orderDTO.getProduct().getNameOfProduct());
+            System.out.println("Amount: " + orderDTO.getProduct().getAmountOfProduct());
+            return new OrderDTO(product);
+        } else {
+            System.out.println("No supplier was selected");
+            return null;
+        }
     }
 
-    public boolean process() {
-        boolean isOrdered = orderService.process(order.getProduct());
-
-        if (isOrdered) {
-            System.out.println("Thank you! Your order number is: " + order.getNumOrder());
-            System.out.println();
-        } else {
-            System.out.println("Unfinished order!");
-            System.out.println();
-        }
-
-        return isOrdered;
+    @Override
+    public boolean ordered(Product product) {
+        return false;
     }
 }
