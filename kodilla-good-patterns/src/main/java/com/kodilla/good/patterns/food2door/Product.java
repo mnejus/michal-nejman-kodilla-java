@@ -3,9 +3,9 @@ package com.kodilla.good.patterns.food2door;
 import java.util.Objects;
 
 public class Product {
-    private String typeOfProduct;
-    private String nameOfProduct;
-    private double amountOfProduct;
+    private final String typeOfProduct;
+    private final String nameOfProduct;
+    private final double amountOfProduct;
 
     public Product(String typeOfProduct, String nameOfProduct, double amountOfProducts) {
         this.typeOfProduct = typeOfProduct;
