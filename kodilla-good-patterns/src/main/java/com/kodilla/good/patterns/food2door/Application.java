@@ -13,6 +13,5 @@ public class Application {
         } else {
             System.out.println("empty ...");
         }
-
     }
 }
