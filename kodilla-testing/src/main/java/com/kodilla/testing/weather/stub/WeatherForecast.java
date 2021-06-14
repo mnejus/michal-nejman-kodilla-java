@@ -1,5 +1,6 @@
 package com.kodilla.testing.weather.stub;
 
+import java.text.DecimalFormat;
 import java.util.*;
 
 public class WeatherForecast {
@@ -18,12 +19,14 @@ public class WeatherForecast {
     }
 
     public double averageTemperature() {
+        DecimalFormat df2 = new DecimalFormat("#.##");
         double sum = 0;
         for(Map.Entry<String, Double> temperature: temperatures.getTemperatures().entrySet()) {
             sum += temperature.getValue();
         }
         double average = sum / temperatures.getTemperatures().size();
-        return average;
+        double avg = Math.round(average*100);
+        return avg/100;
     }
 
     public double medianTemperature() {
