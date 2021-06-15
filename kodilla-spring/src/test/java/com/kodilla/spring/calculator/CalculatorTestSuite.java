@@ -17,10 +17,10 @@ public class CalculatorTestSuite {
         //Given
         //When
         //Then
-        assertEquals("Value: 12.0", calculator.add(10, 2));
-        assertEquals("Value: 8.0", calculator.sub(10, 2));
-        assertEquals("Value: 20.0", calculator.mul(10, 2));
-        assertEquals("Value: 5.0", calculator.div(10, 2));
-        assertEquals("You cannot divide by zero!", calculator.div(10,0));
+        assertEquals(12, calculator.add(10, 2));
+        assertEquals(8, calculator.sub(10, 2));
+        assertEquals(20, calculator.mul(10, 2));
+        assertEquals(5, calculator.div(10, 2));
+        assertEquals(Double.NaN, calculator.div(10,0));
     }
 }

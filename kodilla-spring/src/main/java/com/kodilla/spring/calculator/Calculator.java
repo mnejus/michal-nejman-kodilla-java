@@ -9,23 +9,27 @@ public class Calculator {
     @Autowired
     private Display display;
 
-    public String add(double a, double b) {
-        return display.displayValue(a + b);
+    public double add(double a, double b) {
+        display.displayValue(a + b);
+        return a + b;
     }
 
-    public String sub(double a, double b) {
-        return display.displayValue(a - b);
+    public double sub(double a, double b) {
+        display.displayValue(a - b);
+        return a - b;
     }
 
-    public String mul(double a, double b) {
-        return display.displayValue(a * b);
+    public double mul(double a, double b) {
+        display.displayValue(a * b);
+        return a * b;
     }
 
-    public String div(double a, double b) {
+    public double div(double a, double b) {
         if (b != 0) {
-            return display.displayValue(a / b);
+            display.displayValue(a / b);
+            return a / b;
         } else {
-            return "You cannot divide by zero!";
+            return Double.NaN;
         }
     }
 }

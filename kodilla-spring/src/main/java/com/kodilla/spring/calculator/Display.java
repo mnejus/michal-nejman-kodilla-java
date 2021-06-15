@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class Display {
 
-    public String displayValue(double val) {
-        return "Value: " + val;
+    public void displayValue(double val) {
+        System.out.println("Value: " + val);
     }
 }
