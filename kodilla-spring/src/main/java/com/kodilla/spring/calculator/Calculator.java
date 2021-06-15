@@ -6,8 +6,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class Calculator {
 
-    private double val;
-
     @Autowired
     private Display display;
 
