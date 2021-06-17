@@ -1,29 +1,26 @@
 package com.kodilla.spring.portfolio;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
-import java.util.List;
 
 @SpringBootTest
 public class BoardTestSuite {
 
+    @Autowired
+    private TaskList toDoList, inProgressList, doneList;
+
     @Test
     void testTaskAdd() {
         //Given
-        ApplicationContext context = new AnnotationConfigApplicationContext(BoardConfig.class);
-        Board board = context.getBean(Board.class);
         //When
-        List<String> toDoList = board.getToDoList().getTasks();
-        List<String> inProgressList = board.getInProgressList().getTasks();
-        List<String> doneList = board.getDoneList().getTasks();
-        toDoList.add("Task to do");
-        inProgressList.add("Task in progress");
-        doneList.add("Task done");
+        toDoList.getTasks().add("first task to do");
+        inProgressList.getTasks().add("task in progress");
+        doneList.getTasks().add("task done");
         //Then
-        System.out.println(toDoList + " " + " " + inProgressList + " " + doneList);
+        System.out.println(toDoList.getTasks() + " " + inProgressList.getTasks() + " " + doneList.getTasks());
+
+
     }
 
 }
