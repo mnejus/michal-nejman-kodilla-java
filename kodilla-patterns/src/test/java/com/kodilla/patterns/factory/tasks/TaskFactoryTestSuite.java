@@ -11,9 +11,10 @@ public class TaskFactoryTestSuite {
         //Given
         TaskFactory factory = new TaskFactory();
         //When
-        boolean shopping = factory.makeTask(TaskFactory.SHOPPING);
+        Task shopping = factory.makeTask(TaskFactory.SHOPPING);
+        shopping.executeTask();
         //Then
-        assertEquals(true, shopping);
+        assertEquals(true, shopping.isTaskExecuted());
     }
 
     @Test
@@ -21,9 +22,10 @@ public class TaskFactoryTestSuite {
         //Given
         TaskFactory factory = new TaskFactory();
         //When
-        boolean driving = factory.makeTask(TaskFactory.DRIVING);
+        Task driving = factory.makeTask(TaskFactory.DRIVING);
+        driving.executeTask();
         //Then
-        assertEquals(true, driving);
+        assertEquals(true, driving.isTaskExecuted());
     }
 
     @Test
@@ -31,8 +33,9 @@ public class TaskFactoryTestSuite {
         //Given
         TaskFactory factory = new TaskFactory();
         //When
-        boolean painting = factory.makeTask(TaskFactory.PAINTING);
+        Task painting = factory.makeTask(TaskFactory.PAINTING);
+        painting.executeTask();
         //Then
-        assertEquals(true, painting);
+        assertEquals(true, painting.isTaskExecuted());
     }
 }
