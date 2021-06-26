@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 public class CheckersTestSuite {
 
     @Test
-    void testCheckersBuilder() {
+     public void testCheckersBuilder() {
         //Given
         Checkers checkers = new Checkers.CheckersBuilder()
                 .PlayerOne("John")
