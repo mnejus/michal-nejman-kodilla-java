@@ -5,6 +5,11 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedNativeQuery(
+        name = "Company.retrieveCompaniesWithThreeFirstChar",
+        query = "SELECT * FROM COMPANIES WHERE LEFT (COMPANY_NAME, 3) = :CHAR",
+        resultClass = Company.class
+)
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
@@ -12,6 +17,9 @@ public class Company {
     private int id;
     private String name;
     private List<Employee> employees = new ArrayList<>();
+
+    public Company() {
+    }
 
     public Company(String name) {
         this.name = name;
